@@ -81,6 +81,9 @@ void app_main()
 
 ###  2.1.4 Build และรันโปรแกรม 
 
+ตัวอย่างผลที่ได้
+
+![Alt text](./Pictures/Picture-16.png)
 
 ## <<<งานที่ต้องทำ>>>
 
