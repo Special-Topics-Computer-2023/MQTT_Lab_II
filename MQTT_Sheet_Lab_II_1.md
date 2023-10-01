@@ -237,12 +237,12 @@ static void mqtt_event_handler(void *handler_args, esp_event_base_t base, int32_
 |   MQTT_EVENT_CONNECTED |connected event, additional context: session_present flag|
 |   MQTT_EVENT_DISCONNECTED | disconnected event |
 |   MQTT_EVENT_SUBSCRIBED | subscribed event, additional context: <br> - msg_id:&emsp;message id<br>- data:&emsp;pointer to the received data<br> - data_len:&emsp;length of the data for this event |
-|   MQTT_EVENT_UNSUBSCRIBED |  |
-|   MQTT_EVENT_PUBLISHED |  |
-|   MQTT_EVENT_DATA |  |
-|   MQTT_EVENT_ERROR |  |
-
-
+|   MQTT_EVENT_UNSUBSCRIBED | unsubscribed event |
+|   MQTT_EVENT_PUBLISHED | published event, additional context:  msg_id |
+|   MQTT_EVENT_DATA | data event, additional context:<br>- msg_id:&emsp;message id<br>- topic:&emsp;pointer to the received topic<br>- topic_len:&emsp;length of the topic<br>- data:&emsp;pointer to the received data<br>- data_len:&emsp;length of the data for this event<br>- current_data_offset:&emsp;offset of the current data for this event<br>- total_data_len:&emsp;total length of the data received<br>- retain:&emsp;retain flag of the message<br>- qos:&emsp;qos level of the message<br>- dup                  dup flag of the message<br>Note: Multiple MQTT_EVENT_DATA could be fired for one message, if it is longer than internal buffer. In that case only first event contains topic pointer and length, other contain data only with current data length and current data offset updating. |
+|   MQTT_EVENT_ERROR | on error event, additional context: connection return code, error handle from esp_tls (if supported) |
+|MQTT_EVENT_BEFORE_CONNECT|The event occurs before connecting|
+|MQTT_EVENT_DELETED|Notification on delete of one message from the internal outbox, if the message couldn't have been sent and acknowledged before expiring defined in OUTBOX_EXPIRED_TIMEOUT_MS. (events are not posted upon deletion of successfully acknowledged messages)<br>- This event id is posted only if MQTT_REPORT_DELETED_MESSAGES==1<br>- Additional context: msg_id (id of the deleted message). |
 
 
 
