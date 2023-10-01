@@ -244,9 +244,17 @@ static void mqtt_event_handler(void *handler_args, esp_event_base_t base, int32_
 |MQTT_EVENT_BEFORE_CONNECT|The event occurs before connecting|
 |MQTT_EVENT_DELETED|Notification on delete of one message from the internal outbox, if the message couldn't have been sent and acknowledged before expiring defined in OUTBOX_EXPIRED_TIMEOUT_MS. (events are not posted upon deletion of successfully acknowledged messages)<br>- This event id is posted only if MQTT_REPORT_DELETED_MESSAGES==1<br>- Additional context: msg_id (id of the deleted message). |
 
-
-
+จากโปรแกรมเบื้องต้นที่ได้จาก  Template จะมีการแสดงข้อความ Log ออกมาทาง console เมื่อมีเหตุการณ์ต่าง ๆ บน MQTT ให้ build  และ run โปรแกรมบน esp32 และทดสอบโดยการส่ง Topic จาก MQTT Explorer
 ## 1.5 ทดสอบการทำงาน 
+
+#### 1.5.1  ฺBuild โปรเจค
+
+#### 1.5.2  Run โปรเจค (download ไปยัง ESP32)
+
+#### 1.5.3  Run โปรแกรมบน ESP32 (เปิด serial terminal เพื่อดู  output)
+
+เมื่อถึงขั้นตอนนี้ ESP32 ควรจะบอกว่าเชื่อมต่อกับ WiFi ได้เรียบร้อย และแสดงข้อความที่บอกว่าเชื่อมต่อ MQTT ได้สำเร็จ
+
 
 
 ## 1.6 วิเคราะห์และสรุปผล 
