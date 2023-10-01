@@ -22,7 +22,7 @@
 
 ### 1.2.2 ตั้งชื่อ `esp32-mqtt-tcp`
 
-![Alt text](image.png)
+![Alt text](./Pictures/Picture-02.png)
 
 ### 1.2.3 ตรวจสอบ code
 esp-idf  จะสร้าง code  เบื้องต้นมาให้ ให้ศึกษา code ให้เข้าใจ
@@ -63,11 +63,30 @@ project(mqtt_tcp)
 
 ```
 
+จากตัวอย่างพบว่า example นั้นอยู่ในที่ตั้งดังนี้
+
+```cmake
+set(EXTRA_COMPONENT_DIRS $ENV{IDF_PATH}/examples/common_components/protocol_examples_common)
+```
+
+### 1.2.4  Build project เพื่อให้ esp-idf ดึง component ต่างๆ มาไว้ใร working area
+
+![Alt text](./Pictures/Picture-03.png)
+
+
+### 1.2.5  ตรวจสอบไฟล์ที่ดึงเข้ามาในขณะที่มีการ build 
+
+![Alt text](./Pictures/Picture-04.png)
+
+ถ้า double click ที่ชื่อไฟล์ในโฟลเดอร์ `protocol_example_common` ก็จะเห็น cocd ในไฟล์นั้น ๆ
+
 
 ## 1.3 กำหนดค่า configuration
 
+![Alt text](./Pictures/Picture-05.png)
 
 
+![Alt text](./Pictures/Picture-06.png)
 ## 1.4 แก้ไข code
 
 
