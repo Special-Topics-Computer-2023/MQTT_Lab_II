@@ -24,6 +24,15 @@
 
 ![Alt text](./Pictures/Picture-02.png)
 
+
+#### (อธิบายว่าทำอะไร๗
+
+(1)  ................
+
+(2)  ................
+
+(3)  ................
+
 ### 1.2.3 ตรวจสอบ code
 esp-idf  จะสร้าง code  เบื้องต้นมาให้ ให้ศึกษา code ให้เข้าใจ
 
@@ -74,19 +83,46 @@ set(EXTRA_COMPONENT_DIRS $ENV{IDF_PATH}/examples/common_components/protocol_exam
 ![Alt text](./Pictures/Picture-03.png)
 
 
+(1) .....................
+
+(2) .....................
+
 ### 1.2.5  ตรวจสอบไฟล์ที่ดึงเข้ามาในขณะที่มีการ build 
 
 ![Alt text](./Pictures/Picture-04.png)
 
 ถ้า double click ที่ชื่อไฟล์ในโฟลเดอร์ `protocol_example_common` ก็จะเห็น cocd ในไฟล์นั้น ๆ
 
+(1) .....................
+
+(2) .....................
+
+(3) .....................
 
 ## 1.3 กำหนดค่า configuration
 
+### 1.3.1 ตั้งค่า mqtt broker location (URL)
+
 ![Alt text](./Pictures/Picture-05.png)
 
+(1) double click ไฟล์ `sdkconfig`
+
+(2) เลือก `Example Configuration`
+
+(3) กำหนด url ของ mqtt broker เป็น `mqtt://mqtt.eclipseprojects.io`
+
+### 1.3.2 ตั้งค่า WiFi SSID และ password
 
 ![Alt text](./Pictures/Picture-06.png)
+
+(1) เลือก `Example Connection Configuration`
+
+(2) กำหนด WiFi SSID และ password
+
+### 1.3.3 ปิดไฟล์ SDK Configuration, กด Save เพื่อบันทึกการเปลี่ยนแปลงไปใช้งาน
+
+![Alt text](./Pictures/Picture-07.png)
+
 ## 1.4 แก้ไข code
 
 
