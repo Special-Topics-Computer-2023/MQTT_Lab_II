@@ -81,7 +81,7 @@ void app_main()
 
 ###  2.1.4 Build และรันโปรแกรม 
 
-ตัวอย่างผลที่ได้
+ตัวอย่างผลที่ได้ เมื่อกดปุ่ม button  
 
 ![Alt text](./Pictures/Picture-16.png)
 
