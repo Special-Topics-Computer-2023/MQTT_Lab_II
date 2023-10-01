@@ -168,6 +168,8 @@ static void mqtt_app_start(void)
     esp_mqtt_client_register_event(client, ESP_EVENT_ANY_ID, mqtt_event_handler, NULL);
 ```
 
+กด ctrl+click ที่ `mqtt_event_handler` เพื่อตามไปที่ฟังก์ชัน
+
 ซึ่งมีรายละเอียดของฟังก์ขันดังต่่อไปนี้
 
 ```c
@@ -228,6 +230,21 @@ static void mqtt_event_handler(void *handler_args, esp_event_base_t base, int32_
     }
 }
 ```
+ฟังก์ชันดันกล่าว จะถูกเรียกขึ้นมาทำงานเมื่อมีเหตุการณ์ใดๆ เกี่ยวกับ MQTT เกิดขึ้น เช่น
+
+|ชื่อ event| รายละเอียด|   
+|--|--|
+|   MQTT_EVENT_CONNECTED |connected event, additional context: session_present flag|
+|   MQTT_EVENT_DISCONNECTED | disconnected event |
+|   MQTT_EVENT_SUBSCRIBED | subscribed event, additional context: <br> - msg_id:&emsp;message id<br>- data:&emsp;pointer to the received data<br> - data_len:&emsp;length of the data for this event |
+|   MQTT_EVENT_UNSUBSCRIBED |  |
+|   MQTT_EVENT_PUBLISHED |  |
+|   MQTT_EVENT_DATA |  |
+|   MQTT_EVENT_ERROR |  |
+
+
+
+
 
 ## 1.5 ทดสอบการทำงาน 
 
