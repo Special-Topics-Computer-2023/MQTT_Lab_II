@@ -260,4 +260,4 @@ msg_id = esp_mqtt_client_subscribe(client, "/stu_161/lamp2", 0);
 
 repo - https://github.com/RachataS/MQTT-II.git
 
-[>> Lab2 >>](./lab2.md) 
+## [>> Lab2 >>](./lab2.md) 
