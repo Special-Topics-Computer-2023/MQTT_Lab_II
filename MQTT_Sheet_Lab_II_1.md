@@ -56,7 +56,7 @@ void app_main(void)
 }
 ```
 
-จากโปรแกรมต้วอย่าง นักศึกษาจะไม่เห็น function ที่ main() เรียกใช้ ซึ่ง function เหล่านั้นจะถูกดึงเข้ามาในขั้นตอนการ build ซึ่งสามารถเปิดไฟล์  CMakeList.txt ใน root ของ project ดูได้ว่า esp-idf เอามาจากที่ไหน
+จากโปรแกรมต้วอย่าง นักศึกษาจะไม่เห็น function ที่ app_main() เรียกใช้ ซึ่ง function เหล่านั้นจะถูกดึงเข้ามาในขั้นตอนการ build ซึ่งสามารถเปิดไฟล์  CMakeList.txt ใน root ของ project ดูได้ว่า esp-idf เอามาจากที่ไหน
 
 ``` cmake
 # The following four lines of boilerplate have to be in your project's CMakeLists
