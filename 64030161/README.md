@@ -1,4 +1,4 @@
-# 64030161 Rachata Supanurak
+# 64030161 Rachata Supanurak MQTT-II lab1
 
 ## สร้าง Project
 
@@ -156,3 +156,104 @@ I (7598) MQTT_EXAMPLE: sent publish successful, msg_id=0
 จะเห็นผลลัพธ์ใน terminal ดังนี้
 
 <img width="453" alt="Screenshot 2566-10-02 at 10 18 46" src="https://github.com/RachataS/MQTT_Lab_II/assets/115066261/45a22b1d-0b52-489c-a7c2-eba3bda0580e">
+
+ส่งค่า 0 1 เพื่อทดสอบคำสั่งสำหรับให้ LED ติด - ดับ
+
+<img width="379" alt="Screenshot 2566-10-02 at 10 28 58" src="https://github.com/RachataS/MQTT_Lab_II/assets/115066261/3867c1e0-b84e-464f-8b1e-26598a10abb5">
+
+จะเห็นผลลัพธ์ใน terminal ดังนี้
+
+<img width="486" alt="Screenshot 2566-10-02 at 10 29 17" src="https://github.com/RachataS/MQTT_Lab_II/assets/115066261/3623bce3-458e-49b7-93d2-4017106b5ef2">
+
+## เพิ่มโค้ดเพื่อให้สามารถควบคุมไฟ ติด ดับได้
+
+define เพื่อเก็บค่่า pin
+```css
+#define LED1 23
+```
+
+reset pin และ ตั้งค่า pin ให้เป็น output ใน app_main
+```css
+     gpio_reset_pin(LED1);
+    gpio_set_direction(LED1, GPIO_MODE_OUTPUT);
+```
+
+แก้ไข code ใน case MQTT_EVENT_DATA ใน switch case เพื่อควบคุม LED
+```css
+    case MQTT_EVENT_DATA:
+        ESP_LOGI(TAG, "MQTT_EVENT_DATA");
+        printf("TOPIC=%.*s\r\n", event->topic_len, event->topic);
+        printf("DATA=%.*s\r\n", event->data_len, event->data);
+
+        if (strncmp(event->topic, "/stu_161/lamp1", event->topic_len) == 0) // if topic is "/stu_999/lamp1" then result = 0
+        {
+            ESP_LOGI(TAG, "event->topic = /stu_161/lamp1");
+            if (strncmp(event->data, "1", event->data_len) == 0) // if data is "1" then result = 0
+            {
+                ESP_LOGI(TAG, "Turn on LED");
+                gpio_set_level(LED1, 1);
+            }
+            if (strncmp(event->data, "0", event->data_len) == 0) // if data is "0" then result = 0
+            {
+                ESP_LOGI(TAG, "Turn off LED");
+                gpio_set_level(LED1, 0);
+            }
+        }
+        break;
+```
+เมื่อส่ง 1 ใน MQTT Explorer ไฟจะติดและแสลงผลดังนี้
+
+<img width="399" alt="Screenshot 2566-10-02 at 10 50 09" src="https://github.com/RachataS/MQTT_Lab_II/assets/115066261/42ba52fd-7175-4a4a-a5fa-a29a50283eb7">
+
+<img width="397" alt="Screenshot 2566-10-02 at 10 50 33" src="https://github.com/RachataS/MQTT_Lab_II/assets/115066261/a766c9fc-746e-40b7-8a45-c5e78e384865">
+
+เมื่อส่ง 0 ใน MQTT Explorer ไฟจดับและแสลงผลดังนี้
+
+<img width="400" alt="Screenshot 2566-10-02 at 10 51 36" src="https://github.com/RachataS/MQTT_Lab_II/assets/115066261/67b8ec1e-0bcd-4304-a3bd-9dc1fc1313be">
+
+<img width="412" alt="Screenshot 2566-10-02 at 10 51 51" src="https://github.com/RachataS/MQTT_Lab_II/assets/115066261/052624f9-6bfb-4f74-b48c-a82887d98747">
+
+## แก้ไขโค้ดเพื่อให้ควบคุม LED 2 ดวง
+
+define เพื่อเก็บค่่า pin
+```css
+#define LED1 23
+#define LED2 22
+```
+
+reset pin และ ตั้งค่า pin ให้เป็น output ใน app_main
+```css
+     gpio_reset_pin(LED1);
+    gpio_reset_pin(LED2);
+    gpio_set_direction(LED1, GPIO_MODE_OUTPUT);
+    gpio_set_direction(LED2, GPIO_MODE_OUTPUT);
+```
+
+เพิ่ม subscribe ใน case MQTT_EVENT_CONNECTED
+```css
+msg_id = esp_mqtt_client_subscribe(client, "/stu_161/lamp2", 0);
+```
+
+เพิ่ม code ใน case MQTT_EVENT_DATA ใน switch case เพื่อควบคุม LED 2 ดวง
+```css
+ if (strncmp(event->topic, "/stu_161/lamp2", event->topic_len) == 0) // if topic is "/stu_999/lamp1" then result = 0
+        {
+            ESP_LOGI(TAG, "event->topic = /stu_161/lamp2");
+            if (strncmp(event->data, "1", event->data_len) == 0) // if data is "1" then result = 0
+            {
+                ESP_LOGI(TAG, "Turn on LED2");
+                gpio_set_level(LED2, 1);
+            }
+            if (strncmp(event->data, "0", event->data_len) == 0) // if data is "0" then result = 0
+            {
+                ESP_LOGI(TAG, "Turn off LED2");
+                gpio_set_level(LED2, 0);
+            }
+        }
+```
+
+เมื่อส่งค่าไปใน topic lamp2 เป็น 1 จะแสดงผลใน terminal และไฟจะติด
+
+<img width="385" alt="Screenshot 2566-10-02 at 11 19 58" src="https://github.com/RachataS/MQTT_Lab_II/assets/115066261/3c83746f-2862-4ebe-b3d2-b2b15d6b55cd">
+
+<img width="384" alt="Screenshot 2566-10-02 at 11 21 02" src="https://github.com/RachataS/MQTT_Lab_II/assets/115066261/2adb9ad9-9c24-4d79-8054-c5828037c606">
