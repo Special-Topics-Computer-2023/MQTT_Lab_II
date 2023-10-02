@@ -259,3 +259,5 @@ msg_id = esp_mqtt_client_subscribe(client, "/stu_161/lamp2", 0);
 <img width="384" alt="Screenshot 2566-10-02 at 11 21 02" src="https://github.com/RachataS/MQTT_Lab_II/assets/115066261/2adb9ad9-9c24-4d79-8054-c5828037c606">
 
 repo - https://github.com/RachataS/MQTT-II.git
+
+[>> Lab2 >>](./lab2.md) 
