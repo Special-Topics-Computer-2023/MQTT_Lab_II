@@ -100,4 +100,6 @@ void app_main()
 
 ![Screenshot 2566-10-02 at 18 36 38](https://github.com/RachataS/MQTT_Lab_II/assets/115066261/c066e317-c2e1-401d-9388-ce7c5e03ace8)
 
+repo - https://github.com/RachataS/MQTT-II2.git
+
 ##  [>> Lab 3 >>](./lab3.md) 
