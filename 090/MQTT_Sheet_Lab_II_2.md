@@ -88,7 +88,84 @@ void app_main()
 ## <<<งานที่ต้องทำ>>>
 
 1. รับอินพุตจาก button สองตัว เพื่อควบคุม LED สองดวง โดยใช้การ interrupt ที่ดัดแปลงมาจากตัวอย่างในการทดลองนี้
+```
+#include <stdio.h>
+#include <stdbool.h>
+#include <unistd.h>
 
+#include "freertos/FreeRTOS.h"
+#include "freertos/task.h"
+#include "freertos/queue.h"
+#include "driver/gpio.h"
+#include "esp_log.h"
 
- 
+#define BUTTON1_PIN 21
+#define BUTTON2_PIN 22
+#define LED1_PIN 5
+#define LED2_PIN 18
+
+xQueueHandle buttonQueue;
+
+static void IRAM_ATTR button_interrupt_handler(void *args)
+{
+    int pinNumber = (int)args;
+    xQueueSendFromISR(buttonQueue, &pinNumber, NULL);
+}
+
+void LED_Control_Task(void *params)
+{
+    int button1_state = 0;
+    int button2_state = 0;
+    int pinNumber = 0;
+
+    while (true)
+    {
+        if (xQueueReceive(buttonQueue, &pinNumber, portMAX_DELAY))
+        {
+            if (pinNumber == BUTTON1_PIN)
+            {
+                button1_state = !button1_state;
+                gpio_set_level(LED1_PIN, button1_state);
+                printf("Button 1 pressed. LED 1 state is %d\n", button1_state);
+            }
+            else if (pinNumber == BUTTON2_PIN)
+            {
+                button2_state = !button2_state;
+                gpio_set_level(LED2_PIN, button2_state);
+                printf("Button 2 pressed. LED 2 state is %d\n", button2_state);
+            }
+        }
+    }
+}
+
+void app_main()
+{
+    gpio_pad_select_gpio(BUTTON1_PIN);
+    gpio_set_direction(BUTTON1_PIN, GPIO_MODE_INPUT);
+    gpio_set_pull_mode(BUTTON1_PIN, GPIO_PULLDOWN_ONLY);
+    gpio_set_intr_type(BUTTON1_PIN, GPIO_INTR_POSEDGE);
+
+    gpio_pad_select_gpio(BUTTON2_PIN);
+    gpio_set_direction(BUTTON2_PIN, GPIO_MODE_INPUT);
+    gpio_set_pull_mode(BUTTON2_PIN, GPIO_PULLDOWN_ONLY);
+    gpio_set_intr_type(BUTTON2_PIN, GPIO_INTR_POSEDGE);
+
+    gpio_pad_select_gpio(LED1_PIN);
+    gpio_set_direction(LED1_PIN, GPIO_MODE_OUTPUT);
+
+    gpio_pad_select_gpio(LED2_PIN);
+    gpio_set_direction(LED2_PIN, GPIO_MODE_OUTPUT);
+
+    buttonQueue = xQueueCreate(10, sizeof(int));
+
+    xTaskCreate(LED_Control_Task, "LED_Control_Task", 2048, NULL, 10, NULL);
+
+    gpio_install_isr_service(0);
+    gpio_isr_handler_add(BUTTON1_PIN, button_interrupt_handler, (void *)BUTTON1_PIN);
+    gpio_isr_handler_add(BUTTON2_PIN, button_interrupt_handler, (void *)BUTTON2_PIN);
+}
+
+```
+![image](https://github.com/Nanapon2002/MQTT_Lab_II/assets/115066356/5ca44bc3-553b-473c-a4ff-521f56b98473)
+
 ##  [>> หัวข้อต่อไป >>](./MQTT_Sheet_Lab_II_3.md) 
