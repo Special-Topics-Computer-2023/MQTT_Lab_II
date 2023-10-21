@@ -271,4 +271,4 @@ void app_main(void)
 MQTT Exploer ถ้าต้องการตั้ง LED1 เปลี่ยน Topic เป็น stu_238/lamp1 ส่วน LED2 เปลี่ยนเป็น stu_238/lamp2
 ![image](https://github.com/JASDA0000/MQTT_Lab_II/assets/103983336/74d690a3-8428-42bb-b2a4-bf82484088eb)
 
-## LAB2 (./LAB2.md)
+## [LAB2](./LAB2.md)
