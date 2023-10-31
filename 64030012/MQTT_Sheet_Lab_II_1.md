@@ -382,5 +382,10 @@ static void mqtt_event_handler(void *handler_args, esp_event_base_t base, int32_
 3. ตั้งค่าใน App บน smartphone (MQTT Dashboard) หรือ app บน Iphone  ให้สั่งการ LED ได้
 
 4. Challenge  ทำให้ระบบสามารถคสบคุม LED ได้มากกว่า 1 ดวง (ไม่จำกัดจำนวนสูงสุด)
+
+![Screenshot 2023-10-31 003655](https://github.com/Fixckpx/MQTT_Lab_II/assets/115066186/d1d562db-ac19-4165-948c-d03b1e64eb54)
+![Screenshot 2023-10-31 002932](https://github.com/Fixckpx/MQTT_Lab_II/assets/115066186/f2ebf519-aaa2-4f33-8125-9b4062e9d258)
+![Screenshot 2023-10-31 001958](https://github.com/Fixckpx/MQTT_Lab_II/assets/115066186/2a4accbd-d370-4220-9bea-22616f9cc8be)
+
  
 ##  [>> หัวข้อต่อไป >>](./MQTT_Sheet_Lab_II_2.md) 
