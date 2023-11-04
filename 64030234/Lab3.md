@@ -294,7 +294,8 @@ void app_main(void) {
 }
 
 ```
+# terminal
+![image](https://github.com/KUNTIDA234/MQTT_Lab_II/assets/115066215/aac5213e-4741-4c13-a5f4-9db9d34aabbe)
 
-![image](https://github.com/KUNTIDA234/MQTT_Lab_II/assets/115066215/5905bdf2-97cc-4638-b811-4dabc2bc5104)
-
-![image](https://github.com/KUNTIDA234/MQTT_Lab_II/assets/115066215/8fca5045-efce-46c3-8cdb-e7bbb5eda7a8)
+# MQTT Explorer
+![image](https://github.com/KUNTIDA234/MQTT_Lab_II/assets/115066215/842be319-648e-4b60-b830-1caef2b92404)
