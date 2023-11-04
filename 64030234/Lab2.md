@@ -96,7 +96,7 @@ void app_main()
 ```
 เมื่อกดปุ่มเปิด-ปิด LED terminal ได้ผลลัพธ์ดังนี้
 
-![image](https://github.com/KUNTIDA234/MQTT_Lab_II/assets/115066215/7ec17559-3cb5-4718-9e48-97d9157856a3)
+![image](https://github.com/KUNTIDA234/MQTT_Lab_II/assets/115066215/3435a5be-3a23-4e44-9b30-4c66759d51b8)
 
 ## Repo Project
 https://github.com/KUNTIDA234/esp32-mqtt-interrupt
