@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 # 64030234 นางสาวกุลธิดา  เกษร
 
 ## 1.2.2 
@@ -16,10 +15,10 @@
   - 3 แสดงโค้ดตัวอย่างไฟล์ example
 
   ## เชื่อมต่อ MQTT Explorer
-  ![image](https://github.com/KUNTIDA234/MQTT_Lab_II/assets/115066215/76bc97c8-3743-4f23-95e8-e1fdc2917982)
+![เชื่อมต่อ MQTT Explorer](https://github.com/KUNTIDA234/MQTT_Lab_II/assets/115066215/13ec1584-47f8-4090-9a3f-21b3ff737cd1)
 
 ## publish 
-![image](https://github.com/KUNTIDA234/MQTT_Lab_II/assets/115066215/a31c1ab4-b3ae-46d8-9bbe-d33b74791144)
+![pub1](https://github.com/KUNTIDA234/MQTT_Lab_II/assets/115066215/b442814c-8266-4fd5-977b-8d8695996b2d)
 
 ## output terminal
 ![image](https://github.com/KUNTIDA234/MQTT_Lab_II/assets/115066215/0aafaf06-3e96-4b6b-a82e-79274f732c47)
