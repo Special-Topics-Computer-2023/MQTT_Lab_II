@@ -93,11 +93,11 @@ set(EXTRA_COMPONENT_DIRS $ENV{IDF_PATH}/examples/common_components/protocol_exam
 
 ถ้า double click ที่ชื่อไฟล์ในโฟลเดอร์ `protocol_example_common` ก็จะเห็น cocd ในไฟล์นั้น ๆ
 
-(1) .....................
+(1) ดูตรง build
 
-(2) .....................
+(2) ide
 
-(3) .....................
+(3) exanples
 
 ## 1.3 กำหนดค่า configuration
 
