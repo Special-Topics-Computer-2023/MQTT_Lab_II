@@ -87,7 +87,7 @@ set(EXTRA_COMPONENT_DIRS $ENV{IDF_PATH}/examples/common_components/protocol_exam
 
 (1) Build Project
 
-(2)  ดูผลในคอนโซน
+(2)  ดูผลในคอนโซน ไม่มี error
 
 ### 1.2.5  ตรวจสอบไฟล์ที่ดึงเข้ามาในขณะที่มีการ build 
 
@@ -95,11 +95,11 @@ set(EXTRA_COMPONENT_DIRS $ENV{IDF_PATH}/examples/common_components/protocol_exam
 
 ถ้า double click ที่ชื่อไฟล์ในโฟลเดอร์ `protocol_example_common` ก็จะเห็น cocd ในไฟล์นั้น ๆ
 
-(1) .....................
+(1) build
 
-(2) .....................
+(2) ide
 
-(3) .....................
+(3) examples
 
 ## 1.3 กำหนดค่า configuration
 
