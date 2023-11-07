@@ -85,9 +85,9 @@ set(EXTRA_COMPONENT_DIRS $ENV{IDF_PATH}/examples/common_components/protocol_exam
 ![Alt text](./Pictures/Picture-03.png)
 
 
-(1) .....................
+(1) Build Project
 
-(2) .....................
+(2)  ดูผลในคอนโซน
 
 ### 1.2.5  ตรวจสอบไฟล์ที่ดึงเข้ามาในขณะที่มีการ build 
 
