@@ -83,9 +83,9 @@ set(EXTRA_COMPONENT_DIRS $ENV{IDF_PATH}/examples/common_components/protocol_exam
 ![Alt text](./Pictures/Picture-03.png)
 
 
-(1) .....................
+(1) Build project เพื่อให้ esp-idf
 
-(2) .....................
+(2) component ที่แสดงค่าต่างเมื่อ Build เสร็จ
 
 ### 1.2.5  ตรวจสอบไฟล์ที่ดึงเข้ามาในขณะที่มีการ build 
 
