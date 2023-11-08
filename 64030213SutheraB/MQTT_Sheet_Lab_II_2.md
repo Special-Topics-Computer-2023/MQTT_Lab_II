@@ -89,6 +89,7 @@ void app_main()
 
 1. รับอินพุตจาก button สองตัว เพื่อควบคุม LED สองดวง โดยใช้การ interrupt ที่ดัดแปลงมาจากตัวอย่างในการทดลองนี้
 
+![image](https://github.com/Suthera213/MQTT_Lab_II/assets/115066359/9a879ad5-092f-4a38-9aa7-e69b6bac16a0)
 
  
 ##  [>> หัวข้อต่อไป >>](./MQTT_Sheet_Lab_II_3.md) 
