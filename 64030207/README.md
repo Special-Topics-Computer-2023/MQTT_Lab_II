@@ -210,6 +210,7 @@ reset pin และ ตั้งค่า pin ให้เป็น output ใ�
 ```
 เมื่อทดลองจะได้ผลดังนี้
 ![ภาพ](https://github.com/Sittinon-Sawatdemongkol/MQTT_Lab_II/assets/115066278/6c900706-0c90-4a1d-9eda-c36dfaf56211)
+
 Output
 I (11019) MQTT_EXAMPLE: MQTT_EVENT_DATA
 ```css
@@ -225,11 +226,13 @@ I (17159) MQTT_EXAMPLE: Turn off LED
 ```
 แก้ไขโค้ดเพื่อให้ควบคุม LED 2 ดวง
 define เพื่อเก็บค่า pin
+
 ```css
 #define LED1 23
 #define LED2 22
 ```
 reset pin และ ตั้งค่า pin ให้เป็น output ใน app_main
+
 ```css
     gpio_reset_pin(LED1);
     gpio_reset_pin(LED2);
@@ -237,10 +240,13 @@ reset pin และ ตั้งค่า pin ให้เป็น output ใ�
     gpio_set_direction(LED2, GPIO_MODE_OUTPUT);
 ```
 เพิ่ม subscribe ใน case MQTT_EVENT_CONNECTED
+
 ```css
 msg_id = esp_mqtt_client_subscribe(client, "/stu_161/lamp2", 0);
 ```
+
 เพิ่ม code ใน case MQTT_EVENT_DATA ใน switch case เพื่อควบคุม LED 2 ดวง
+
 ```css
  if (strncmp(event->topic, "/stu_161/lamp2", event->topic_len) == 0) // if topic is "/stu_999/lamp1" then result = 0
         {
@@ -259,6 +265,7 @@ msg_id = esp_mqtt_client_subscribe(client, "/stu_161/lamp2", 0);
 ```
 ทดลองรันโปรแกรม
 ![ภาพ](https://github.com/Sittinon-Sawatdemongkol/MQTT_Lab_II/assets/115066278/9c021dbf-2010-49eb-8e78-f516c1e321dc)
+
 ทดลองเปิดปิดไฟ ใช้ /lamp1-2 ในการกำหนดดวงไฟ
 ```css
 I (22539) MQTT_EXAMPLE: MQTT_EVENT_DATA
