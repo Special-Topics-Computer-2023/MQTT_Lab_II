@@ -125,3 +125,102 @@ I (10366) MQTT_EXAMPLE: MQTT_EVENT_DATA
 TOPIC=/topic/qos0
 DATA=data
 ```
+
+เมื่อแก้ไขโค้ดใน case MQTT_EVENT_CONNECTED จะได้ output ดังนี้
+```css
+I (28326) esp_netif_handlers: example_netif_sta ip: 172.20.10.8, mask: 255.255.255.240, gw: 172.20.10.1
+I (28326) example_connect: Got IPv4 event: Interface "example_netif_sta" address: 172.20.10.8
+I (28616) example_connect: Got IPv6 event: Interface "example_netif_sta" address: fe80:0000:0000:0000:96b5:55ff:fef6:f590, type: ESP_IP6_ADDR_IS_LINK_LOCAL
+I (28616) example_common: Connected to example_netif_sta
+I (28626) example_common: - IPv4 address: 172.20.10.8,
+I (28626) example_common: - IPv6 address: fe80:0000:0000:0000:96b5:55ff:fef6:f590, type: ESP_IP6_ADDR_IS_LINK_LOCAL
+I (28646) MQTT_EXAMPLE: Other event id:7
+I (30026) MQTT_EXAMPLE: MQTT_EVENT_CONNECTED
+I (30026) MQTT_EXAMPLE: sent publish successful, msg_id=33877
+I (30026) MQTT_EXAMPLE: sent subscribe successful, msg_id=20508
+I (30036) MQTT_EXAMPLE: sent subscribe successful, msg_id=51637
+I (30036) MQTT_EXAMPLE: sent unsubscribe successful, msg_id=26625
+I (30046) MQTT_EXAMPLE: sent unsubscribe successful, msg_id=773
+I (30056) MQTT_EXAMPLE: sent subscribe successful, msg_id=11123
+I (30636) MQTT_EXAMPLE: MQTT_EVENT_PUBLISHED, msg_id=33877
+I (31146) MQTT_EXAMPLE: MQTT_EVENT_SUBSCRIBED, msg_id=20508
+I (31146) MQTT_EXAMPLE: sent publish successful, msg_id=0
+I (31156) MQTT_EXAMPLE: MQTT_EVENT_SUBSCRIBED, msg_id=51637
+I (31156) MQTT_EXAMPLE: sent publish successful, msg_id=0
+I (31166) MQTT_EXAMPLE: MQTT_EVENT_UNSUBSCRIBED, msg_id=26625
+I (31166) MQTT_EXAMPLE: MQTT_EVENT_UNSUBSCRIBED, msg_id=773
+I (31176) MQTT_EXAMPLE: MQTT_EVENT_SUBSCRIBED, msg_id=11123
+I (31186) MQTT_EXAMPLE: sent publish successful, msg_id=0
+I (31586) MQTT_EXAMPLE: MQTT_EVENT_DATA
+TOPIC=/topic/qos0
+DATA=data
+I (32276) MQTT_EXAMPLE: MQTT_EVENT_DATA
+TOPIC=/topic/qos0
+DATA=data
+I (32276) MQTT_EXAMPLE: MQTT_EVENT_DATA
+TOPIC=/topic/qos0
+DATA=data
+```
+ทดสอบส่งข้อมูล
+![ภาพ](https://github.com/Sittinon-Sawatdemongkol/MQTT_Lab_II/assets/115066278/78ba63ac-2d25-4df8-a072-1e0844b2f2c1)
+
+Output
+```css
+TOPIC=/stu_207/lamp1
+DATA=1
+I (115736) MQTT_EXAMPLE: MQTT_EVENT_DATA
+TOPIC=/topic/qos0
+DATA=data
+I (129456) MQTT_EXAMPLE: MQTT_EVENT_DATA
+TOPIC=/stu_207/lamp1
+DATA=Hello
+```
+แก้ไขโค้ดในการเปิดปิดไฟ
+กำหนด define
+```css
+#define LED1 23
+```
+reset pin และ ตั้งค่า pin ให้เป็น output ใน app_main
+```css
+    gpio_reset_pin(LED1);
+    gpio_set_direction(LED1, GPIO_MODE_OUTPUT);
+```
+แก้ไข code ใน case MQTT_EVENT_DATA ใน switch case เพื่อควบคุม LED
+```css
+    case MQTT_EVENT_DATA:
+        ESP_LOGI(TAG, "MQTT_EVENT_DATA");
+        printf("TOPIC=%.*s\r\n", event->topic_len, event->topic);
+        printf("DATA=%.*s\r\n", event->data_len, event->data);
+
+        if (strncmp(event->topic, "/stu_207/lamp1", event->topic_len) == 0) // if topic is "/stu_999/lamp1" then result = 0
+        {
+            ESP_LOGI(TAG, "event->topic = /stu_207/lamp1");
+            if (strncmp(event->data, "1", event->data_len) == 0) // if data is "1" then result = 0
+            {
+                ESP_LOGI(TAG, "Turn on LED");
+                gpio_set_level(LED1, 1);
+            }
+            if (strncmp(event->data, "0", event->data_len) == 0) // if data is "0" then result = 0
+            {
+                ESP_LOGI(TAG, "Turn off LED");
+                gpio_set_level(LED1, 0);
+            }
+        }
+        break;
+```
+เมื่อทดลองจะได้ผลดังนี้
+![ภาพ](https://github.com/Sittinon-Sawatdemongkol/MQTT_Lab_II/assets/115066278/6c900706-0c90-4a1d-9eda-c36dfaf56211)
+Output
+I (11019) MQTT_EXAMPLE: MQTT_EVENT_DATA
+```css
+TOPIC=/stu_207/lamp1
+DATA=1
+I (11019) MQTT_EXAMPLE: event->topic = /stu_207/lamp1
+I (11019) MQTT_EXAMPLE: Turn on LED
+I (17159) MQTT_EXAMPLE: MQTT_EVENT_DATA
+TOPIC=/stu_207/lamp1
+DATA=0
+I (17159) MQTT_EXAMPLE: event->topic = /stu_207/lamp1
+I (17159) MQTT_EXAMPLE: Turn off LED
+```
+Repo : 
