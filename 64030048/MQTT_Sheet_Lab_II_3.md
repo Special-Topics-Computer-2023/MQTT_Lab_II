@@ -153,5 +153,7 @@ void LED_Control_Task(void *params)
 1. รับอินพุตจาก button สองตัว แบบ interrupt เพื่อควบคุม LED สองดวง แล้วส่งไปยัง MQTT Broker  ทดสอบโดยการแสดงผลบน MQTT Explorer (ดัดแปลงเพิ่มเติมจาก code ในใบงาน)
 
 ** ถ้ากลัวผิดพลาด ให้แยก branch บน git แล้วแก้ได้โดยไม่ต้องกังวลว่า code จะเสียหาย
+![ภาพ](https://github.com/kammam19/MQTT_Lab_II/assets/112167732/677265cc-8744-42a5-9426-159d19cfe213)
+![ภาพ](https://github.com/kammam19/MQTT_Lab_II/assets/112167732/ee538b0c-51a0-442c-80af-29248970ee74)
 
 ## >> จบการทดลอง  || 
