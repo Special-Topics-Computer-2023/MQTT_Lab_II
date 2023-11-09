@@ -223,4 +223,53 @@ DATA=0
 I (17159) MQTT_EXAMPLE: event->topic = /stu_207/lamp1
 I (17159) MQTT_EXAMPLE: Turn off LED
 ```
+แก้ไขโค้ดเพื่อให้ควบคุม LED 2 ดวง
+define เพื่อเก็บค่า pin
+```css
+#define LED1 23
+#define LED2 22
+```
+reset pin และ ตั้งค่า pin ให้เป็น output ใน app_main
+```css
+    gpio_reset_pin(LED1);
+    gpio_reset_pin(LED2);
+    gpio_set_direction(LED1, GPIO_MODE_OUTPUT);
+    gpio_set_direction(LED2, GPIO_MODE_OUTPUT);
+```
+เพิ่ม subscribe ใน case MQTT_EVENT_CONNECTED
+```css
+msg_id = esp_mqtt_client_subscribe(client, "/stu_161/lamp2", 0);
+```
+เพิ่ม code ใน case MQTT_EVENT_DATA ใน switch case เพื่อควบคุม LED 2 ดวง
+```css
+ if (strncmp(event->topic, "/stu_161/lamp2", event->topic_len) == 0) // if topic is "/stu_999/lamp1" then result = 0
+        {
+            ESP_LOGI(TAG, "event->topic = /stu_161/lamp2");
+            if (strncmp(event->data, "1", event->data_len) == 0) // if data is "1" then result = 0
+            {
+                ESP_LOGI(TAG, "Turn on LED2");
+                gpio_set_level(LED2, 1);
+            }
+            if (strncmp(event->data, "0", event->data_len) == 0) // if data is "0" then result = 0
+            {
+                ESP_LOGI(TAG, "Turn off LED2");
+                gpio_set_level(LED2, 0);
+            }
+        }
+```
+ทดลองรันโปรแกรม
+![ภาพ](https://github.com/Sittinon-Sawatdemongkol/MQTT_Lab_II/assets/115066278/9c021dbf-2010-49eb-8e78-f516c1e321dc)
+ทดลองเปิดปิดไฟ ใช้ /lamp1-2 ในการกำหนดดวงไฟ
+```css
+I (22539) MQTT_EXAMPLE: MQTT_EVENT_DATA
+TOPIC=/stu_207/lamp1
+DATA=1
+I (22539) MQTT_EXAMPLE: event->topic = /stu_207/lamp1
+I (22539) MQTT_EXAMPLE: Turn on LED1
+I (24899) MQTT_EXAMPLE: MQTT_EVENT_DATA
+TOPIC=/topic/qos0
+DATA=data
+I (32879) MQTT_EXAMPLE: MQTT_EVENT_DATA
+TOPIC=/stu_207/lamp2
+```
 Repo : 
