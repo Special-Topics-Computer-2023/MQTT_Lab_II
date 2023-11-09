@@ -212,8 +212,8 @@ reset pin และ ตั้งค่า pin ให้เป็น output ใ�
 ![ภาพ](https://github.com/Sittinon-Sawatdemongkol/MQTT_Lab_II/assets/115066278/6c900706-0c90-4a1d-9eda-c36dfaf56211)
 
 Output
-I (11019) MQTT_EXAMPLE: MQTT_EVENT_DATA
 ```css
+I (11019) MQTT_EXAMPLE: MQTT_EVENT_DATA
 TOPIC=/stu_207/lamp1
 DATA=1
 I (11019) MQTT_EXAMPLE: event->topic = /stu_207/lamp1
