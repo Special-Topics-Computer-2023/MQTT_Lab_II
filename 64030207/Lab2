@@ -1,7 +1,4 @@
-# Sittinon 64030207
-
-แก้ไข main.c ดังนี้
-
+# Sittinon
 ```css
 #include <stdio.h>
 #include <stdbool.h>
@@ -94,9 +91,4 @@ void app_main()
     gpio_isr_handler_add(BUTTON1_PIN, gpio_interrupt_handler, (void *)BUTTON1_PIN);
     gpio_isr_handler_add(BUTTON2_PIN, gpio_interrupt_handler2, (void *)BUTTON2_PIN);
 }
-
 ```
-เมื่อกดปุ่มเพื่อเปิด ปิด LED terminal จะแสดงสถานะดังนี้
-
-
-
