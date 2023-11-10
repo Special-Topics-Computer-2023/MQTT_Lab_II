@@ -264,6 +264,7 @@ msg_id = esp_mqtt_client_subscribe(client, "/stu_161/lamp2", 0);
         }
 ```
 ทดลองรันโปรแกรม
+
 ![ภาพ](https://github.com/Sittinon-Sawatdemongkol/MQTT_Lab_II/assets/115066278/9c021dbf-2010-49eb-8e78-f516c1e321dc)
 
 ทดลองเปิดปิดไฟ ใช้ /lamp1-2 ในการกำหนดดวงไฟ
