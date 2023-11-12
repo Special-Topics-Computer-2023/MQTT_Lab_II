@@ -375,12 +375,15 @@ static void mqtt_event_handler(void *handler_args, esp_event_base_t base, int32_
 
 ## <<<งานที่ต้องทำ>>>
 
-1. ทำตามใบงานให้ได้ผลลัพธ์เหมือนตัวอย่าง
+ทำตามใบงานให้ได้ผลลัพธ์เหมือนตัวอย่าง
 
-2. เพิ่ม code ให้สามารถ On-Off LED ได้จริง เมื่อสั่งการจาก MQTT Explorer
+![ทดสอบการทำงาน_1](https://github.com/Wisawa183/MQTT_Lab_II/assets/115066431/d6425e4c-417a-4891-ae6a-07410f0fe411)
 
-3. ตั้งค่าใน App บน smartphone (MQTT Dashboard) หรือ app บน Iphone  ให้สั่งการ LED ได้
+![ทดสอบการทำงาน_2](https://github.com/Wisawa183/MQTT_Lab_II/assets/115066431/f0a43671-4285-47de-9657-28c5ebf781c8)
 
-4. Challenge  ทำให้ระบบสามารถคสบคุม LED ได้มากกว่า 1 ดวง (ไม่จำกัดจำนวนสูงสุด)
+![ทดสอบการทำงาน_3](https://github.com/Wisawa183/MQTT_Lab_II/assets/115066431/085ffa44-a712-4e61-8126-ad891f15032d)
+
+
+
  
 ##  [>> หัวข้อต่อไป >>](./MQTT_Sheet_Lab_II_2.md) 
