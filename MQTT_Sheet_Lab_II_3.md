@@ -154,4 +154,9 @@ void LED_Control_Task(void *params)
 
 ** ถ้ากลัวผิดพลาด ให้แยก branch บน git แล้วแก้ได้โดยไม่ต้องกังวลว่า code จะเสียหาย
 
+## EXAMPLE OUTPUT
+
+![image](https://github.com/Sorrawit087/MQTT_Lab_II/assets/110808862/85d53dc1-35cd-423c-bdad-fd09885bb506)
+
+
 ## >> จบการทดลอง  || 
