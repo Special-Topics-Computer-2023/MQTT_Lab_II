@@ -1,6 +1,8 @@
 # MQTT_Lab_I
 การทดลอง MQTT ตอนที่ 1  การใช้ ESP32 เป็น MQTT Subscriber
 
+Repo:https://github.com/Siracha192/esp32-mqtt-tcp-sent
+
 # 1. การทดลอง
 
 ## 1.1 กำหนด requirement และ scenario ของโปรเจค
