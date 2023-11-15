@@ -27,11 +27,11 @@
 
 #### (อธิบายว่าทำอะไร)
 
-(1)  ................
+(1) เขียนชื่อ project
 
-(2)  ................
+(2) เลือก tcp ซึ่งเป็นเทมเพลตในโฟลเดอร์ โปรโตคอล
 
-(3)  ................
+(3) Finish สร้างสำเร็จ
 
 ### 1.2.3 ตรวจสอบ code
 esp-idf  จะสร้าง code  เบื้องต้นมาให้ ให้ศึกษา code ให้เข้าใจ
@@ -83,9 +83,9 @@ set(EXTRA_COMPONENT_DIRS $ENV{IDF_PATH}/examples/common_components/protocol_exam
 ![Alt text](./Pictures/Picture-03.png)
 
 
-(1) .....................
+(1) Build Project
 
-(2) .....................
+(2) Build เสร็จ
 
 ### 1.2.5  ตรวจสอบไฟล์ที่ดึงเข้ามาในขณะที่มีการ build 
 
@@ -93,11 +93,11 @@ set(EXTRA_COMPONENT_DIRS $ENV{IDF_PATH}/examples/common_components/protocol_exam
 
 ถ้า double click ที่ชื่อไฟล์ในโฟลเดอร์ `protocol_example_common` ก็จะเห็น cocd ในไฟล์นั้น ๆ
 
-(1) .....................
+(1) build
 
-(2) .....................
+(2) ide
 
-(3) .....................
+(3) examples
 
 ## 1.3 กำหนดค่า configuration
 
@@ -376,11 +376,16 @@ static void mqtt_event_handler(void *handler_args, esp_event_base_t base, int32_
 ## <<<งานที่ต้องทำ>>>
 
 1. ทำตามใบงานให้ได้ผลลัพธ์เหมือนตัวอย่าง
+   ![image](https://github.com/TanapatPluemchai/MQTT_Lab_II/assets/115067806/20b738b0-ae5c-44b3-bf01-eabe7d8ebc05)
 
-2. เพิ่ม code ให้สามารถ On-Off LED ได้จริง เมื่อสั่งการจาก MQTT Explorer
 
-3. ตั้งค่าใน App บน smartphone (MQTT Dashboard) หรือ app บน Iphone  ให้สั่งการ LED ได้
+2. เพิ่ม code ให้สามารถ On-Off LED ได้จริง เมื่อสั่งการจาก MQTT Explorer 
+![image](https://github.com/TanapatPluemchai/MQTT_Lab_II/assets/115067806/dae0315a-b33c-45ff-aa0c-cb3b1e500a30)
 
-4. Challenge  ทำให้ระบบสามารถคสบคุม LED ได้มากกว่า 1 ดวง (ไม่จำกัดจำนวนสูงสุด)
+
+3. ตั้งค่าใน App บน smartphone (MQTT Dashboard) หรือ app บน Iphone  ให้สั่งการ LED ได้ 
+![image](https://github.com/TanapatPluemchai/MQTT_Lab_II/assets/115067806/fdab0896-55e1-4801-800a-4bb0f2a741f0)
+
+
  
 ##  [>> หัวข้อต่อไป >>](./MQTT_Sheet_Lab_II_2.md) 
