@@ -83,9 +83,9 @@ set(EXTRA_COMPONENT_DIRS $ENV{IDF_PATH}/examples/common_components/protocol_exam
 ![Alt text](./Pictures/Picture-03.png)
 
 
-(1) .....................
+(1) Build project เพื่อให้ esp-idf
 
-(2) .....................
+(2) component ที่แสดงค่าต่างเมื่อ Build เสร็จ
 
 ### 1.2.5  ตรวจสอบไฟล์ที่ดึงเข้ามาในขณะที่มีการ build 
 
@@ -93,11 +93,11 @@ set(EXTRA_COMPONENT_DIRS $ENV{IDF_PATH}/examples/common_components/protocol_exam
 
 ถ้า double click ที่ชื่อไฟล์ในโฟลเดอร์ `protocol_example_common` ก็จะเห็น cocd ในไฟล์นั้น ๆ
 
-(1) .....................
+(1) ดูตรง build
 
-(2) .....................
+(2) ide
 
-(3) .....................
+(3) exanples
 
 ## 1.3 กำหนดค่า configuration
 
